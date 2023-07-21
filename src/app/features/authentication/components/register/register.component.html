@@ -4,7 +4,6 @@
 >
   <div class="row">
     <div class="col">
-    
         <img
           src="assets/images/sign_up.png"
           class="ms-5"
@@ -33,28 +32,35 @@
               type="text"
               class="form-control my-0 py-2"
               placeholder="Email Address"
+              #userEmail
+              required
             />
             <input
               type="text"
               class="form-control my-3 py-2"
               placeholder="Username"
+              #userName
+              required
             />
             <input
               type="password"
               class="form-control my-3 py-2"
               placeholder="Password"
+              #userPassword
+              required
             />
             <div class="text-center mt-3">
               <button
                 class="btn"
                 style="background-color: #9f5c59; color: white"
+                onclick="OnsignUp(userEmail.value,userPassword.value)"
               >
                 Sign Up
               </button>
             </div>
             <p class="small text-center font-monospace text-body-secondary m-2">
               Already have an account ?<a
-                href=""
+                routerLink="/login"
                 class="text-gray-soft"
                 style="text-decoration: none"
               >

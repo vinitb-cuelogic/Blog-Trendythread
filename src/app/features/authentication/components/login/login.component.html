@@ -15,24 +15,29 @@
             <input
               type="text"
               class="form-control my-0 py-2"
-              placeholder="Username"
+              placeholder="Email"
+              #userEmail 
+              required
             />
             <input
               type="password"
               class="form-control my-3 py-2"
               placeholder="Password"
+              #userPassword
+              required
             />
             <div class="text-center mt-3">
               <button
                 class="btn"
                 style="background-color: #9f5c59; color: white"
+                (click) ="OnsignIn(userEmail.value,userPassword.value)"
               >
                 Log In
               </button>
             </div>
             <p class="small text-center font-monospace text-body-secondary m-2">
               Don't have an account yet?<a
-                href=""
+                routerLink="/signup"
                 class="text-gray-soft"
                 style="text-decoration: none"
               >
