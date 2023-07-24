@@ -1,0 +1,4 @@
+#blog-card:hover{
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgb(72,78,85,.6);
+}
