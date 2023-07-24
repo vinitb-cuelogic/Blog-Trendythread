@@ -6,14 +6,16 @@ import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+
   ],
   imports: [      
     HomeRoutingModule,
     CoreModule
     ],
   exports: [
-    HomePageComponent
+    HomePageComponent,
+
   ],
   providers: [],
 })

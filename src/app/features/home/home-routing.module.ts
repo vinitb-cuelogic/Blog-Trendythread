@@ -5,7 +5,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   { path: 'trendythreads', component: HomePageComponent },
-  { path: '', redirectTo: '/trendythreads', pathMatch: 'full'}
+  { path: '', redirectTo: '/trendythreads', pathMatch: 'full' },
 ];
 
 @NgModule({

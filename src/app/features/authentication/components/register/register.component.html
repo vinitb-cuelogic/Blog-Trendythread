@@ -51,9 +51,10 @@
             />
             <div class="text-center mt-3">
               <button
+                type="button"
                 class="btn"
                 style="background-color: #9f5c59; color: white"
-                onclick="OnsignUp(userEmail.value,userPassword.value)"
+                (click)="OnsignUp(userEmail.value,userPassword.value)"
               >
                 Sign Up
               </button>

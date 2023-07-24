@@ -12,13 +12,17 @@ export class LoginComponent implements OnInit {
   isSignedIn=false
   ngOnInit(): void {
   }
+  onalert() {
+    console.log("sjskskok")
+  }
   async OnsignIn(email:string, pass:string)
   {
+    console.log("inside login")
     await this.authService.signIn(email, pass)
     if (this.authService.isLoggedIn)
     {
       this.isSignedIn = true
-      this.router.navigate(['/user-home']);
+      this.router.navigate(['/trendythreads/user-home']);
     }
     else {
       this.isSignedIn=false

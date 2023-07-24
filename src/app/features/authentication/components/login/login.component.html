@@ -3,7 +3,12 @@
     <div class="col-12 col-sm-12 col-md-12 m-auto">
       <div
         class="card w-75 m-auto"
-        style="background-color: transparent; border:0; border-top: 2px solid #9f5c59; border-bottom: 2px solid #9f5c59;"
+        style="
+          background-color: transparent;
+          border: 0;
+          border-top: 2px solid #9f5c59;
+          border-bottom: 2px solid #9f5c59;
+        "
       >
         <img
           src="assets/images/Logo.png"
@@ -12,25 +17,34 @@
         />
         <div class="card-body">
           <form>
+            <div class="form-floating ">
             <input
-              type="text"
-              class="form-control my-0 py-2"
+              type="email"
+              class="form-control "
+              id="floatingInput"
               placeholder="Email"
-              #userEmail 
+              #userEmail
               required
             />
+            <label for="floatingInput" class="text-secondary ">Email</label>
+          </div>
+          <div class="form-floating ">
             <input
               type="password"
-              class="form-control my-3 py-2"
+              class="form-control my-2"
+              id="floatingInput"
               placeholder="Password"
               #userPassword
               required
             />
+            <label for="floatingInput" class="text-secondary ">Password</label>
+          </div>
             <div class="text-center mt-3">
               <button
+                type="button"
                 class="btn"
                 style="background-color: #9f5c59; color: white"
-                (click) ="OnsignIn(userEmail.value,userPassword.value)"
+                (click)="OnsignIn(userEmail.value, userPassword.value)"
               >
                 Log In
               </button>

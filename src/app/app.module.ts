@@ -8,6 +8,7 @@ import { AuthenticationModule } from './features/authentication/authentication.m
 import { HomeModule } from './features/home/home.module';
 import { UserModule } from './features/user/user.module';
 import { SharedModule } from './shared/shared.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,8 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AuthenticationModule,
     UserModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

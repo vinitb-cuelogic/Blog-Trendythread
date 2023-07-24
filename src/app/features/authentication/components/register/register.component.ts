@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   }
   async OnsignUp(email:string, pass:string)
   {
+    console.log("inside signin")
     await this.authService.signUp(email, pass)
     if (this.authService.isLoggedIn)
     {

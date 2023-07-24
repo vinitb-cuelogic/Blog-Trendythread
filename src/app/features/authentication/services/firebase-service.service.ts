@@ -9,12 +9,13 @@ export class FirebaseService {
 
   constructor(public auth: AngularFireAuth,public router : Router) { }
   async signIn(email: string, password: string) {
+    console.log("ssjdsj")
     await this.auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
+        console.log(res)
         this.isLoggedIn=true
         localStorage.setItem('user', JSON.stringify(res.user));
-        console.log("ssjdsj")
         // window.alert(res)
        
       })
