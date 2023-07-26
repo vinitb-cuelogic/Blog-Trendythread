@@ -4,7 +4,8 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FirebaseService } from '../../services/firebase-service.service';
+import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,14 @@ import { FirebaseService } from '../../services/firebase-service.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  isLoggedIn=false
   constructor(
-    public authService: FirebaseService,
+    public authService: AuthService,
     public router: Router,
     private fb: FormBuilder
   ) {}
   loginForm = this.fb.group({
-    email: [
+    username: [
       '',
       [
         Validators.required,
@@ -38,4 +40,29 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  login(){
+    this.authService.login(this.loginForm.value).subscribe(
+      (data)=>{
+        this.isLoggedIn=true
+        localStorage.setItem('user', data);
+        Swal.fire(
+          {
+            title: "Login Successful",
+            icon: "success"
+          });
+        this.router.navigate(['/trendythreads/user-home']);
+      },
+      (error)=>{
+        Swal.fire(
+          {
+            title: "Bad Credentials",
+            text: error.message,
+            icon: "warning"
+          });
+        console.log(error)
+      }
+    )
+  }
+
 }

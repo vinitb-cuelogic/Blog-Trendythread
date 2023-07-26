@@ -1,25 +1,12 @@
-<div
-  class="container align-content-center m-auto mt-3"
-  style="background-color: #9f5c59; border-radius: 20px"
->
+<div class="container align-content-center m-auto mt-3" style="background-color: #9f5c59; border-radius: 20px">
   <div class="row">
     <div class="col">
-      <img
-        src="assets/images/sign_up.png"
-        class="ms-5"
-        style="width: 75%; border-radius: 10px"
-      />
+      <img src="assets/images/sign_up.png" class="ms-5" style="width: 75%; border-radius: 10px" />
     </div>
-    <div
-      class="col ms-3"
-      style="background-color: #ffffff; border-radius: 0px 25px 25px 0px"
-    >
+    <div class="col ms-3" style="background-color: #ffffff; border-radius: 0px 25px 25px 0px">
       <div class="card border-0 w-75 m-auto" style="background-color: #ffffff">
-        <img
-          src="assets/images/Logo.png"
-          class="card-img-top"
-          style="height: 150px; width: 250px; align-self: center"
-        />
+        <img src="assets/images/Logo.png" class="card-img-top"
+          style="height: 150px; width: 250px; align-self: center" />
         <div class="card-body">
           <div class="text-center">
             <h5>Create Your Account</h5>
@@ -30,93 +17,46 @@
 
           <form [formGroup]="signupForm">
             <div class="input-group">
-              <img
-                class="input-group-text bg-danger"
-                src="assets/icons/exclamation-circle.svg"
-                *ngIf="
+              <img class="input-group-text bg-danger" src="assets/icons/exclamation-circle.svg" *ngIf="
                   signupForm.get('email')?.invalid &&
                   signupForm.get('email')?.touched
-                "
-              />
-              <input
-                type="text"
-                class="form-control my-0 py-2"
-                placeholder="Email Address"
-                formControlName="email"
-                #userEmail
-                required
-              />
+                " />
+              <input type="text" class="form-control my-0 py-2" placeholder="Email Address" formControlName="email"
+                #userEmail required />
             </div>
-         
+
             <div class="input-group my-2">
-              <img
-                class="input-group-text bg-danger"
-                src="assets/icons/exclamation-circle.svg"
-                *ngIf="
+              <img class="input-group-text bg-danger" src="assets/icons/exclamation-circle.svg" *ngIf="
                 signupForm.get('username')?.invalid &&
                 signupForm.get('username')?.touched
-              "
-              />
-              <input
-              type="text"
-              class="form-control py-2"
-              placeholder="Username"
-              formControlName="username"
-              #userName
-              required
-            />
+              " />
+              <input type="text" class="form-control py-2" placeholder="Username" formControlName="username" #userName
+                required />
             </div>
-           
-            <div class="input-group " >
-              <img
-                class="input-group-text bg-danger"
-                src="assets/icons/exclamation-circle.svg"
 
-                *ngIf="
+            <div class="input-group ">
+              <img class="input-group-text bg-danger" src="assets/icons/exclamation-circle.svg" *ngIf="
                 signupForm.get('password')?.invalid &&
                 signupForm.get('password')?.touched
-              "
-              />
-              <input
-              type="password"
-              class="form-control my-0 py-2"
-              placeholder="Password"
-              formControlName="password"
-              #userPassword
-              required
-            />
+              " />
+              <input type="password" class="form-control my-0 py-2" placeholder="Password" formControlName="password"
+                #userPassword required />
             </div>
-            <div
-              class="bg-danger my-2 p-2 small text-white"
-              style="border-radius: 10px"
-              *ngIf="
+            <div class="bg-danger my-2 p-2 small text-white" style="border-radius: 10px" *ngIf="
                 signupForm.get('password')?.invalid &&
                 signupForm.get('password')?.dirty
-              "
-            >
+              ">
               Password must be atleast 8 chars & must have uppercase,
               lowercase,'@,#,$,%,..' & numbers.
             </div>
             <div class="text-center mt-3">
-              <button
-                type="button"
-                class="btn"
-                style="background-color: #9f5c59; color: white"
-                (click)="
-                  authService.signUp(userEmail.value, userPassword.value)
-                "
-              >
+              <button type="button" class="btn" style="background-color: #9f5c59; color: white" (click)="signUp()">
                 Sign Up
               </button>
             </div>
             <p class="small text-center font-monospace text-body-secondary m-2">
-              Already have an account ?<a
-                routerLink="/login"
-                class="text-gray-soft"
-                style="text-decoration: none"
-              >
-                Login</a
-              >
+              Already have an account ?<a routerLink="/login" class="text-gray-soft" style="text-decoration: none">
+                Login</a>
             </p>
           </form>
         </div>

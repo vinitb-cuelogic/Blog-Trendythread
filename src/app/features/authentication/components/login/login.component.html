@@ -23,7 +23,7 @@
                 class="form-control"
                 id="floatingInput"
                 placeholder="Email"
-                formControlName="email"
+                formControlName="username"
                 #userEmail
                 required
               />
@@ -65,9 +65,7 @@
                   type="button"
                   class="btn"
                   style="background-color: #9f5c59; color: white"
-                  (click)="
-                    authService.signIn(userEmail.value, userPassword.value)
-                  "
+                  (click)="login()"
                 >
                   Log In
                 </button>

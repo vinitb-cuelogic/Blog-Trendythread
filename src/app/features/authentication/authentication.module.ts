@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { FirebaseService } from './services/firebase-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
@@ -19,6 +20,7 @@ import { CommonModule } from '@angular/common';
     AuthenticationRoutingModule,
     ReactiveFormsModule,
     CommonModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
