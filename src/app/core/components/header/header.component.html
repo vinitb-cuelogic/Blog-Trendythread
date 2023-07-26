@@ -1,38 +1,42 @@
-    <header>
-        <div class="py-2 border-bottom bg-white ">
-            <div class="container d-flex flex-wrap flex-column flex-sm-row justify-content-between">
-                <ul class="list-unstyled d-flex flex-wrap ms-0" >
-                    <li class="ms-3"><a href="#"><img src="assets/icons/google.svg" /></a></li>
-                    <li class="ms-3"><a href="#"><img src="assets/icons/twitter.svg" /></a></li>
-                    <li class="ms-3"><a href="#"><img src="assets/icons/facebook.svg" /></a></li>
-                    <li class="ms-3"><a href="#"><img src="assets/icons/instagram.svg" /></a></li>
-                </ul>
-                <div class="vr ms-2 me-5 "></div>
-               <p class="text-muted small m-2">CALLING ALL MOTHER HUSTLERS, BOSS BABES AND FEMALE ENTREPRENEURS!</p>
-              <div class="vr ms-2 me-5 "></div>
-              <div class="text-end">
-                <button type="button" class="btn " style="background-color:#9c5f59; color:white " (click)="logout()">Logout</button>
-              </div>
-            </div>
-          </div>
-        <div class="py-0 border-bottom bg-white ">
-          <div class="container d-flex flex-wrap align-items-center justify-content-center ">
-            <div class="vr"></div>
-            <img src="assets/images/Logo.png" class="ms-3 me-3" width="300" height="150 "/>
-            <div class="vr"></div>
-          </div>
+<header>
+  <div class="bg-white p-2" style="border-bottom: 2px solid #9f5c59">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-between">
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li>
+            <a routerLink="user-home" id="active" class="nav-link px-2 m-1"
+              >HOME</a
+            >
+          </li>
+          <li>
+            <a routerLink="myblogs" class="nav-link px-2 m-1 link-secondary"
+              >MY BLOGS</a
+            >
+          </li>
+          <li>
+            <a routerLink="create-new" class="nav-link px-2 m-1 link-secondary"
+              >WRITE SOMETHING NEW!</a
+            >
+          </li>
+        </ul>
+        <div class="text-end">
+          <button
+            type="button"
+            class="btn"
+            style="background-color: #9c5f59; color: white"
+            (click)="logout()"
+          >
+            Logout
+          </button>
         </div>
-    
-        <div class=" bg-white " style="border-bottom:2px solid #9f5c59 ;">
-            <div class="container">
-              <div class="d-flex flex-wrap align-items-center justify-content-center ">
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                  <li><a routerLink="user-home" id="active" class="nav-link px-2 m-1 ">HOME</a></li>
-                  <li><a routerLink="myblogs" class="nav-link px-2 m-1 link-secondary">MY BLOGS</a></li>
-                  <li><a routerLink="create-new" class="nav-link px-2 m-1 link-secondary">WRITE SOMETHING NEW!</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-      </header>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white py-0">
+    <div
+      class="container d-flex flex-wrap align-items-center justify-content-center"
+    >
+      <img src="assets/images/Logo.png" class="ms-3 me-3" width="200" />
+    </div>
+  </div>
+</header>

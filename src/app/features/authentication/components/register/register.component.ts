@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase-service.service';
+import {
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,20 +11,34 @@ import { FirebaseService } from '../../services/firebase-service.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(public authService: FirebaseService) { } 
-  isSignedIn=false
+  constructor(public authService: FirebaseService,private fb: FormBuilder) { } 
+  
   ngOnInit(): void {
   }
-  async OnsignUp(email:string, pass:string)
-  {
-    console.log("inside signin")
-    await this.authService.signUp(email, pass)
-    if (this.authService.isLoggedIn)
-    {
-      this.isSignedIn=true
-    }
-    else {
-      this.isSignedIn=false
-    }
-  }
+  signupForm = this.fb.group({
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      ],
+    ],
+    username: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      ],
+    ],
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(
+          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
+        ),
+      ],
+    ],
+  });
+
 }

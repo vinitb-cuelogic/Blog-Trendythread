@@ -21,3 +21,9 @@
 .container {
   max-width: 480px;
 }
+
+.errortext{
+  font-size: 12px;
+  font-weight: 600;
+  color: #DC3545;
+}

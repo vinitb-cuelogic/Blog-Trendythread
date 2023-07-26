@@ -10,10 +10,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { FirebaseService } from './services/firebase-service.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
-  imports: [SharedModule, AuthenticationRoutingModule ,
+  imports: [SharedModule,
+    AuthenticationRoutingModule,
+    ReactiveFormsModule,
+    CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,

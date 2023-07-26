@@ -16,48 +16,74 @@
           style="height: 200px"
         />
         <div class="card-body">
-          <form>
-            <div class="form-floating ">
-            <input
-              type="email"
-              class="form-control "
-              id="floatingInput"
-              placeholder="Email"
-              #userEmail
-              required
-            />
-            <label for="floatingInput" class="text-secondary ">Email</label>
-          </div>
-          <div class="form-floating ">
-            <input
-              type="password"
-              class="form-control my-2"
-              id="floatingInput"
-              placeholder="Password"
-              #userPassword
-              required
-            />
-            <label for="floatingInput" class="text-secondary ">Password</label>
-          </div>
-            <div class="text-center mt-3">
-              <button
-                type="button"
-                class="btn"
-                style="background-color: #9f5c59; color: white"
-                (click)="OnsignIn(userEmail.value, userPassword.value)"
+          <form [formGroup]="loginForm">
+            <div class="form-floating">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Email"
+                formControlName="email"
+                #userEmail
+                required
+              />
+              <label for="floatingInput" class="text-secondary">Email</label>
+              <span
+                class="p-error block errortext"
+                *ngIf="
+                  loginForm.get('email')?.invalid &&
+                  loginForm.get('email')?.touched
+                "
               >
-                Log In
-              </button>
+                Invalid Email Id</span
+              >
             </div>
-            <p class="small text-center font-monospace text-body-secondary m-2">
-              Don't have an account yet?<a
-                routerLink="/signup"
-                class="text-gray-soft"
-                style="text-decoration: none"
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control my-1"
+                id="floatingInput1"
+                formControlName="password"
+                placeholder="Password"
+                #userPassword
+                required
+              />
+              <label for="floatingInput1" class="text-secondary"
+                >Password</label
               >
-                SignUp</a
+              <span
+                class="p-error block errortext"
+                *ngIf="
+                  loginForm.get('password')?.invalid &&
+                  loginForm.get('password')?.dirty
+                "
               >
-            </p>
+                Password is required</span
+              >
+              <div class="text-center mt-3">
+                <button
+                  type="button"
+                  class="btn"
+                  style="background-color: #9f5c59; color: white"
+                  (click)="
+                    authService.signIn(userEmail.value, userPassword.value)
+                  "
+                >
+                  Log In
+                </button>
+              </div>
+              <p
+                class="small text-center font-monospace text-body-secondary m-2"
+              >
+                Don't have an account yet?<a
+                  routerLink="/signup"
+                  class="text-gray-soft"
+                  style="text-decoration: none"
+                >
+                  SignUp</a
+                >
+              </p>
+            </div>
           </form>
         </div>
       </div>

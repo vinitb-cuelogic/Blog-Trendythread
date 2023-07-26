@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2";
 @Injectable({
   providedIn: 'root'
 })
@@ -13,14 +14,23 @@ export class FirebaseService {
     await this.auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        console.log(res)
         this.isLoggedIn=true
         localStorage.setItem('user', JSON.stringify(res.user));
-        // window.alert(res)
+        Swal.fire(
+          {
+            title: "Login Successful",
+            icon: "success"
+          });
+        this.router.navigate(['/trendythreads/user-home']);
        
       })
       .catch((error) => {
-        window.alert(error.message);
+        Swal.fire(
+          {
+            title: "Bad Credentials",
+            text: error.message,
+            icon: "warning"
+          });
         console.log(error)
       });
   }
@@ -31,12 +41,21 @@ export class FirebaseService {
       .then((res) => {
         this.isLoggedIn=true
         localStorage.setItem('user', JSON.stringify(res.user));
-        this.router.navigate(['/user-home']);
-        // window.alert("Signup Successful")
+        Swal.fire(
+          {
+            title: "Signup Successful, Please Login to Continue.",
+            icon: "success"
+          });
+        this.router.navigate(['/login']);
       })
-      .catch((error) => {
+      .catch ((error) => {
+        Swal.fire(
+          {
+            title: "Bad Credentials",
+            text: error.message,
+            icon: "warning"
+          });
         console.log(error)
-        window.alert(error.message);
       });
   }
 

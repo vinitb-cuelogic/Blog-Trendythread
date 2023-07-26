@@ -6,6 +6,8 @@ import { LoginComponent } from './features/authentication/components/login/login
 import { RegisterComponent } from './features/authentication/components/register/register.component';
 import { HomePageComponent } from './features/home/home-page/home-page.component';
 import { UserHomeComponent } from './features/user/components/user-home/user-home.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ChildAuthGuard } from './guards/child-auth.guard';
 
 const routes: Routes = [
   {
@@ -31,7 +33,7 @@ const routes: Routes = [
   {
     path: 'trendythreads',
     component: PrivateLayoutComponent,
-    // canActivate: [AuthGuard, ChildAuthGuard],
+    canActivate: [AuthGuard, ChildAuthGuard],
     children: [
       {
         path: '',
