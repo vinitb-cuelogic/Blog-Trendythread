@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe(
       (data)=>{
         this.isLoggedIn=true
-        localStorage.setItem('user', data);
+        localStorage.setItem('user', JSON.stringify(data));
         Swal.fire(
           {
             title: "Login Successful",

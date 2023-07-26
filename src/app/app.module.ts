@@ -8,7 +8,8 @@ import { AuthenticationModule } from './features/authentication/authentication.m
 import { HomeModule } from './features/home/home.module';
 import { UserModule } from './features/user/user.module';
 import { SharedModule } from './shared/shared.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
     HomeModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent],
 })
 

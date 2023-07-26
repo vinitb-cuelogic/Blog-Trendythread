@@ -3,13 +3,13 @@
     <form>
       <div class="row">
         <div class="col-10">
-          <textarea
+          <textarea #comment
           class="form-control"
           placeholder="Add your comment here"
         ></textarea>
         </div>
         <div class="col-2">
-          <button class="btn btn-outline-info text-center">Comment</button>
+          <button class="btn btn-outline-info text-center" type="button" (click)="addComment(comment.value)">Comment</button>
         </div>
       </div>
     </form>   
