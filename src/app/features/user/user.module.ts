@@ -7,11 +7,12 @@ import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { MyblogsComponent } from './components/myblogs/myblogs.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [NewBlogComponent, UserHomeComponent, BlogPageComponent, MyblogsComponent],
-  imports: [UserRoutingModule, AngularEditorModule, SharedModule],
+  imports: [UserRoutingModule, AngularEditorModule, SharedModule, CommonModule],
   exports: [NewBlogComponent, UserHomeComponent,BlogPageComponent,MyblogsComponent],
   providers: [],
 })

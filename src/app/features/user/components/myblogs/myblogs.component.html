@@ -1,13 +1,7 @@
 <div class="container py-2">
   <div class="row align-items-md-stretch">
-    <div class="col-md-4">
-      <app-blog-card></app-blog-card>
-    </div>
-    <div class="col-md-4">
-      <app-blog-card></app-blog-card>
-    </div>
-    <div class="col-md-4">
-      <app-blog-card></app-blog-card>
+    <div class="col-md-4" *ngFor="let x of posts">
+      <app-blog-card [postData]="x"></app-blog-card>
     </div>
   </div>
 </div>

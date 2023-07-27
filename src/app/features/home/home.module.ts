@@ -3,6 +3,7 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { HomeRoutingModule } from './home-routing.module';
   ],
   imports: [      
     HomeRoutingModule,
+    CommonModule,
     CoreModule,
     SharedModule
     ],

@@ -3,12 +3,10 @@
   <div class="card-body">
     <p class="small fw-lighter mb-4" style="font-size: 13px">
       <img src="assets/icons/person-circle.svg" style="width: 25px" />
-      Bootstrap
+      {{postData.username}}
     </p>
-    <h5 class="card-title fw-bold">Card title</h5>
-    <p class="card-text">
-      This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.
+    <h5 class="card-title fw-bold">{{postData.title}}</h5>
+    <p class="card-text" [innerHTML]='postData.content'>
     </p>
     <hr />
     <p class="card-text">

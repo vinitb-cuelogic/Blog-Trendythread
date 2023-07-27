@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserhomeService } from '../../services/userhome.service';
 
 @Component({
   selector: 'app-user-home',
@@ -8,12 +9,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserHomeComponent implements OnInit {
   user: any;
-  email: string |null = '';
-  constructor() { }
+  username: string |null = '';
+  constructor(private userHomeService:UserhomeService) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
-    this.email = this.user.email;
+    this.username = this.user.username;
+    this.getPosts()
+  }
+
+  posts:any;
+
+  getPosts(){
+    this.userHomeService.getPosts().subscribe(
+      (data)=>{
+        console.log(data);
+        
+        this.posts= data
+      },
+      (error)=>{
+        console.log(error.message);
+        
+      }
+    );
   }
 
 }

@@ -1,14 +1,8 @@
 <app-public-header></app-public-header>
 <div class="container">
     <div class="row">
-      <div class="col">
-        <app-blog-card></app-blog-card>
-      </div>
-      <div class="col">
-        <app-blog-card></app-blog-card>
-      </div>
-      <div class="col">
-        <app-blog-card></app-blog-card>
+      <div class="col" *ngFor="let x of posts">
+        <app-blog-card [postData]="x"></app-blog-card>
       </div>
     </div>
   </div>

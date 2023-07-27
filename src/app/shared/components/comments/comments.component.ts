@@ -24,7 +24,7 @@ export class CommentsComponent implements OnInit {
 
     this.commentService.addComment(this.newComment).subscribe(
       ()=>{
-
+        this.ngOnInit();
       },
       ()=>{
 
